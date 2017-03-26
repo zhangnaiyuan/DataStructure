@@ -28,7 +28,7 @@ public interface IStack {
      * 入栈
      * @param object 入栈的元素
      */
-    void push(Object object);
+    void push(Object object) throws StackFullException;
 
     /**
      * 出栈

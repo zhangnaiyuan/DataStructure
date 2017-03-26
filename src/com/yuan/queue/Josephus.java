@@ -5,7 +5,7 @@ package com.yuan.queue;
  * Description: 一群人围成一个圈圈,依次报数,查到k的时候,那个人出去,下一个人接着查
  */
 public class Josephus {
-    public static Object getJosephus(ArrayQueue queue, int k) {
+    public static Object getJosephus(LinkQueue queue, int k) {
         if (queue.isEmpty()) {
             return null;
         }
@@ -19,10 +19,10 @@ public class Josephus {
         return queue.deQueue();
     }
 
-    public static ArrayQueue buildQueue(Object[] objects) {
-        ArrayQueue queue = new ArrayQueue(objects.length + 1);
-        for (int i = 0; i < objects.length; i++) {
-            queue.enQueue(objects[i]);
+    public static LinkQueue buildQueue(Object[] objects) {
+        LinkQueue queue = new LinkQueue();
+        for (Object object : objects) {
+            queue.enQueue(object);
         }
         return queue;
     }

@@ -6,25 +6,13 @@ package com.yuan.stack;
  */
 public class StackTest {
     public static void main(String[] args) {
-        ArrayStack stack = new ArrayStack(10);
+        LinkStack stack = new LinkStack();
         for (int i = 0; i < 10; i++) {
             System.out.println("入栈: " + i);
             stack.push(i);
         }
-        try {
-            stack.push(11);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
         while(!stack.isEmpty()){
             System.out.println("出栈: "+stack.pop());
-        }
-        try {
-            stack.pop();
-        }
-        catch (StackEmptyException e) {
-            e.printStackTrace();
         }
     }
 }

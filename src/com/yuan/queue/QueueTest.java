@@ -6,7 +6,7 @@ package com.yuan.queue;
  */
 public class QueueTest {
     public static void main(String[] args) {
-        ArrayQueue queue = new ArrayQueue(11);
+        LinkQueue queue = new LinkQueue();
         for (int i = 0; i < 10; i++) {
             System.out.println("入队: " + i);
             queue.enQueue(i);
