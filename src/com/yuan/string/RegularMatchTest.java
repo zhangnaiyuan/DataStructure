@@ -9,9 +9,8 @@ public class RegularMatchTest {
     public static void main(String[] args) {
         String majorStr = "CGAGTGGAGCGATGTCGA";
         String matchStr = "GAGCGAT";
-        System.out.println(majorStr.contains(matchStr));
-        System.out.println(majorStr.indexOf(matchStr));
         System.out.println(findStr(majorStr, matchStr));
+        System.out.println(findStr1(majorStr, matchStr));
     }
 
     /**
@@ -25,7 +24,7 @@ public class RegularMatchTest {
     private static int findStr(String str1, String str2) {
         int i;
         int j;
-        //i最大不但超过这个长度
+        //i最大不但超过这个长度  i是模式串相对于主串的偏移值
         for (i = 0; i <= str1.length() - str2.length(); i++) {
             //从匹配的字符串第0个位置
             for (j = 0; j < str2.length(); j++) {
@@ -44,5 +43,27 @@ public class RegularMatchTest {
         }
         return i;
 
+    }
+
+    private static int findStr1(String str1, String str2) {
+        int i = 0;
+        int j = 0;
+        while (i < str1.length() && j < str2.length()) {
+            if (str1.charAt(i) == str2.charAt(j)) {
+                i++;
+                j++;
+            }
+            else{
+                i = i - j + 1; //从起始字符串的下一个继续匹配 i-j就是本次匹配过程中的偏移值
+                j = 0;
+            }
+        }
+        //说明已经匹配完了,找到了
+        if (j == str2.length()) {
+            return i - j;
+        }
+        else{
+            return -1;
+        }
     }
 }

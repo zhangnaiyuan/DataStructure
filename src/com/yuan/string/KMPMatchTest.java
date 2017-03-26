@@ -7,7 +7,7 @@ package com.yuan.string;
 public class KMPMatchTest {
     public static void main(String[] args) {
         String majorStr = "CGAGTGGAGCGATGTCGA";
-        String matchStr = "GAGCGAT";
+        String matchStr = "ABACABAe";
         System.out.println(KMP(majorStr, matchStr));
     }
 
